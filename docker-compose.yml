@@ -8,7 +8,7 @@ services:
       - PORT=8000
     volumes:
       - ./src:/var/www/html
-    command: bash -c "composer install --ignore-platform-reqs && php artisan serve --host=0.0.0.0 --port=8000"
+    command: bash -c "cp .env.example .env && composer install --ignore-platform-reqs && php artisan key:generate && php artisan serve --host=0.0.0.0 --port=8000"
   mariadb:
     image: mariadb:latest
     environment:
