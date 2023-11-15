@@ -2,7 +2,7 @@
 
 Clone this repository (https://github.com/VictoriaLabs/bot-core.git)  
 Install Docker (https://docs.docker.com/get-docker/)  
-Install Docker-compose (if you don't already get it) (https://docs.docker.com/compose/install/)  
+Install Docker-compose (if you don't already have it) (https://docs.docker.com/compose/install/)  
 Install Make (https://tilburgsciencehub.com/building-blocks/configure-your-computer/automation-and-workflows/make/)  
 Enjoy (optional)  
 
