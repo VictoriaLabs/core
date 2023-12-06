@@ -11,15 +11,15 @@ services:
       - PORT=8000
     volumes:
       - ./src:/var/www/html
-    command: bash -c "cp .env.example .env && composer install --ignore-platform-reqs && php artisan key:generate && php artisan migrate && php artisan serve --host=0.0.0.0 --port=8000"
+    command: bash -c "composer install && php artisan key:generate && php artisan migrate && php artisan serve --host=0.0.0.0 --port=8000"
 
   mariadb:
     image: mariadb:latest
     environment:
-      MARIADB_ROOT_PASSWORD: my-secret-pw
-      MARIADB_DATABASE: victorialabs
-      MARIADB_USER: my_user
-      MARIADB_PASSWORD: my_password
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MARIADB_DATABASE: ${DB_DATABASE}
+      MARIADB_USER: ${DB_USERNAME}
+      MARIADB_PASSWORD: ${DB_PASSWORD}
     volumes:
       - db_data:/var/lib/mariadb
     ports:
