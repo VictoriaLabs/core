@@ -6,10 +6,13 @@ RUN apt-get update \
     && apt-get install -y \
         unzip \
         libzip-dev \
-        && docker-php-ext-install zip pdo_mysql
-
+        libicu-dev \
+        && docker-php-ext-install zip pdo_mysql intl
+        
 # Installez Composer (gestionnaire de dépendances pour PHP)
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+COPY . /var/www/html
 
 # Créez un répertoire de travail pour votre application Laravel
 WORKDIR /var/www/html

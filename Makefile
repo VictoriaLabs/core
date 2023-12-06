@@ -1,5 +1,5 @@
 run:
-	docker-compose up -d
+	docker-compose --env-file src/.env up -d
 
 stop:
-	docker stop bot-core-app-1
+	docker-compose stop
