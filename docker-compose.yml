@@ -17,7 +17,7 @@ services:
     image: mariadb:latest
     environment:
       MARIADB_ROOT_PASSWORD: my-secret-pw
-      MARIADB_DATABASE: VictoriaLabs
+      MARIADB_DATABASE: victorialabs
       MARIADB_USER: my_user
       MARIADB_PASSWORD: my_password
     volumes:
