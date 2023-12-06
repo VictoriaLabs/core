@@ -2,6 +2,8 @@
 
 namespace App\Providers\Filament;
 
+use Directory;
+use Filament\Forms\Components\FileUpload;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -17,6 +19,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Jeffgreco13\FilamentBreezy\BreezyCore;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -53,6 +56,13 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ]);
+            ])->plugin(
+                BreezyCore::make()
+                    ->myProfile(true, true, false, true, "profile")
+                    ->avatarUploadComponent(fn() =>
+                        FileUpload::make('avatar_url')->directory('profile_pictures')->avatar()->label("Avatar")
+                    )
+                    ->enableTwoFactorAuthentication()
+            );
     }
 }
