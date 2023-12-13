@@ -15,7 +15,5 @@ use Sentry;
 */
 
 Route::get('/test', function () {
-    Sentry::captureException(new Exception('Test error'));
-    //return view('welcome');
-    //throw new Exception('My first GlitchTip error!');
+    throw new Exception('My first GlitchTip error!');
 });
