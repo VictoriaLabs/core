@@ -12,8 +12,5 @@ RUN apt-get update \
 # Installez Composer (gestionnaire de dépendances pour PHP)
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-COPY . /var/www/html
-
 # Créez un répertoire de travail pour votre application Laravel
 WORKDIR /var/www/html
-
